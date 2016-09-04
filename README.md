@@ -53,7 +53,7 @@ export default class ChatRoom extends Component {
         this.subscription = this.context.cable.subscriptions.create(
             'ChatChannel',
             {
-                received (date) {
+                received (data) {
                     console.log(data)
                 }
             }
