@@ -22,16 +22,19 @@ const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
 // ... Other code
 ```
 
-## Use ActionCableProvider
+## Use with `react-actioncable-provider`
 
 In outer container:
 
 ```jsx
-import { ActionCableProvider } from 'react-native-actioncable'
+import ActionCable from 'react-native-actioncable'
+import ActionCableProvider from 'react-actioncable-provider'
+
+const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
 
 export default function Container (props) {
     return (
-        <ActionCableProvider url='ws://localhost:3000/cable'>
+        <ActionCableProvider cable={cable}>
             <MyApp />
         </ActionCableProvider>
     )
@@ -42,7 +45,6 @@ In some UI screen:
 
 ```jsx
 import React, { Component, PropTypes } from 'react'
-import ActionCable from 'react-native-actioncable'
 
 export default class ChatRoom extends Component {
     static contextTypes = {
