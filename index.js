@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Platform } from 'react-native';
 import ActionCable from 'actioncable'
 
 ActionCable.getConfig = () => null
@@ -11,9 +12,11 @@ ActionCable.Connection.prototype.open = function () {
   return result
 }
 
-global.document = {
-  addEventListener () {},
-  removeEventListener () {}
+if(Platform.OS == 'ios' || Platform.OS == 'android'){
+  global.document = {
+    addEventListener () {},
+    removeEventListener () {}
+  }
 }
 
 export default ActionCable
