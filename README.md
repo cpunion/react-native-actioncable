@@ -46,7 +46,7 @@ export default function Container (props) {
 }
 ```
 
-And then you can get from react component's `context`, or you can use `ActionCableProvider.ActionCable` component.
+And then you can get `cable` object from react component's `context`, or you can use `ActionCableProvider.ActionCable` component.
 
 ### Use in some UI screen directly:
 
