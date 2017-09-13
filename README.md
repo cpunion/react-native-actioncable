@@ -20,6 +20,11 @@ import ActionCable from 'react-native-actioncable'
 const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
 
 // ... Other code
+cable.subscriptions.create('ChatChannel', {
+    received(data) {
+        console.log('Received data:', data)
+    }
+})
 ```
 
 ## Use with `react-actioncable-provider`
@@ -40,6 +45,8 @@ export default function Container (props) {
     )
 }
 ```
+
+And then you can get from react component's `context`, or you can use `ActionCableProvider.ActionCable` component.
 
 ### Use in some UI screen directly:
 
@@ -75,6 +82,7 @@ export default class ChatRoom extends Component {
 
 ```jsx
 import React, { Component, PropTypes } from 'react'
+import { ActionCable } from 'react-actioncable-provider'
 
 export default class ChatRoom extends Component {
     onReceived = (data) => {
