@@ -41,7 +41,7 @@ export default function Container (props) {
 }
 ```
 
-In some UI screen:
+### Use in some UI screen directly:
 
 ```jsx
 import React, { Component, PropTypes } from 'react'
@@ -70,3 +70,28 @@ export default class ChatRoom extends Component {
     // ... Other code
 }
 ```
+
+### Or you can use with ActionCable component (Not react-native-actioncable)
+
+```jsx
+import React, { Component, PropTypes } from 'react'
+
+export default class ChatRoom extends Component {
+    onReceived = (data) => {
+        console.log('Received data:', data)
+    }
+
+    render() {
+        return (
+            <View>
+                <ActionCable channel={{channel: 'ChatChannel'}} onReceived={this.onReceived} />
+                {/* other code */}
+            </View>
+        )
+    }
+}
+```
+
+# Full Example
+
+https://github.com/cpunion/TestRNActionCable
