@@ -1,3 +1,5 @@
+**=============== UNMAINTAINED ==============**
+
 ActionCable for react native.
 
 Just import `actioncable` module, and let it compatiblely with `react native`.
