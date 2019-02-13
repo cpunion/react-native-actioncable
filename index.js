@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { Platform } from 'react-native';
 import ActionCable from 'actioncable'
 
